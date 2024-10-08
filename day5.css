@@ -1,0 +1,14 @@
+#include "iostream"
+using namespace std;
+main()
+{
+	int n,r,s=0;
+	cout<<"enter a no.";
+	cin>>n;
+{
+	r=n%10;
+	s=s*10+r
+	n=n/10;
+}
+cout<<s
+}
