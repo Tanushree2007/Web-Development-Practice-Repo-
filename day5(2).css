@@ -1,0 +1,13 @@
+#include "iostream"
+using namespace std;
+main()
+{
+	int a,b,c;
+	close(0);
+	clase(1);
+	cout<<"enter first no.";
+	cin>>a;
+	cout<<"enter second no.";
+	c=a+b;
+	cout<<c;
+}
