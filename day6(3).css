@@ -1,0 +1,12 @@
+#include "iostream"
+using namespace std;
+main()
+{
+	int x;
+	char y;
+	double z;
+	cout<< size of (x)<<"\n";
+	cout<< size of (y)<<"\n";
+	cout<< size of (z)<<"\n";
+
+}
