@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Pattern</title>
+  <style>
+    .pattern-container {
+      display: grid;
+      grid-template-columns: repeat(5, 50px); /* Creates a 5-column grid */
+      grid-template-rows: repeat(5, 50px);    /* Creates a 5-row grid */
+      gap: 5px;
+      margin: 20px;
+    }
+
+    .star {
+      width: 50px;
+      height: 50px;
+      background-color: yellow;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .empty {
+      background-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="pattern-container">
+    <div class="star"></div>
+    <div class="empty"></div>
+    <div class="star"></div>
+    <div class="empty"></div>
+    <div class="star"></div>
+    
+    <div class="empty"></div>
+    <div class="star"></div>
+    <div class="empty"></div>
+    <div class="star"></div>
+    <div class="empty"></div>
+    
+    <div class="star"></div>
+    <div class="empty"></div>
+    <div class="star"></div>
+    <div class="empty"></div>
+    <div class="star"></div>
+
+    <div class="empty"></div>
+    <div class="star"></div>
+    <div class="empty"></div>
+    <div class="star"></div>
+    <div class="empty"></div>
+
+    <div class="star"></div>
+    <div class="empty"></div>
+    <div class="star"></div>
+    <div class="empty"></div>
+    <div class="star"></div>
+  </div>
+</body>
+</html>
