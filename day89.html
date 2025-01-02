@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .display {
+            width: 240px;
+            height: 40px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-align: right;
+            padding: 10px;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .buttons input {
+            font-size: 1.5em;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            text-align: center;
+        }
+
+        .buttons input:hover {
+            background-color: #eee;
+        }
+
+        .buttons input:active {
+            background-color: #ccc;
+        }
+
+        .buttons input.clear {
+            background-color: #ff6666;
+            color: white;
+        }
+
+        .buttons input.clear:hover {
+            background-color: #ff4444;
+        }
+
+        .buttons input.equals {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .buttons input.equals:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <form action="https://www.google.com/search" method="get" target="_blank">
+        <div class="display">
+            <input type="text" name="q" placeholder="Enter expression" required>
+        </div>
+        <div class="buttons">
+            <input type="submit" value="7">
+            <input type="submit" value="8">
+            <input type="submit" value="9">
+            <input type="submit" value="/">
+            
+            <input type="submit" value="4">
+            <input type="submit" value="5">
+            <input type="submit" value="6">
+            <input type="submit" value="*">
+
+            <input type="submit" value="1">
+            <input type="submit" value="2">
+            <input type="submit" value="3">
+            <input type="submit" value="-">
+
+            <input type="submit" value="0">
+            <input type="submit" value=".">
+            <input type="submit" value="C" class="clear">
+            <input type="submit" value="+">
+
+            <input type="submit" value="=" class="equals">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
