@@ -1,0 +1,25 @@
+.projects{
+	height: 500px;
+	background-color: pink;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.box{
+	height: 400px;
+	background-color: lightblue;
+	margin: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 20px;
+	box-shadow: 0px 5px 5px rgba(0, 1, 0, 0.2);
+}
+
+.box img{
+	width: 200px;
+	padding: 20px;
+	transition: transform 1s ease;
+}
+.box img:hover{
+		transform: scale(1.2);
