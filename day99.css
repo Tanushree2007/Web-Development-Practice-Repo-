@@ -1,0 +1,38 @@
+.box-model{
+	height: 600px;
+	background-color: pink;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.box ,.box1, .box2{
+	height: 400px;
+	width: 350px;
+	background-color: yellowgreen;
+	margin: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	box-shadow: 0px 5px 5px rgba(0, 1, 0, 0.2);
+	text-align: c;
+}
+.box1{
+	background-color: darkred;
+}
+.box2{
+	background-color: darkblue;
+}
+.box ,.box1,.box2{
+	width: 200px;
+	padding: 20px;
+	transition: transform 1s ease;
+}
+.box:hover{
+		transform: scale(1.2);
+	}
+.box1:hover{
+		transform: scale(1.2);
+	}
+.box2:hover{
+		transform: scale(1.2);
+	}
