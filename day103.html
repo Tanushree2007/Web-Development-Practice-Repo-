@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semiconductor Conductivity</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Semiconductor Conductivity vs Temperature</h1>
+    <canvas id="conductivityChart" width="800" height="400"></canvas>
+
+    <script>
+        const q = 1.6e-19;
+        const k = 1.38e-23;
+        const E_g = 1.1;
+        const mu_e = 0.14;
+        const mu_h = 0.05;
+        const dopingConcentration = 1e22;
+
+        function carrierConcentration(T, E_g) {
+            const N_C = 2.8e19;
+            const N_V = 1.04e19;
+            return Math.sqrt(N_C * N_V) * Math.exp(-E_g / (2 * k * T));
+        }
+
+        function intrinsicConductivity(T) {
+            const n_i = carrierConcentration(T, E_g);
+            return q * n_i * (mu_e + mu_h);
+        }
+
+        function extrinsicConductivity(T, carrierConcentration, mobility_e, mobility_h) {
+            return q * carrierConcentration * (mobility_e + mobility_h);
+        }
+
+        function generateData() {
+            const temperatures = [];
+            const intrinsicCond = [];
+            const extrinsicCond = [];
+
+            for (let T = 100; T <= 400; T += 1) {
+                temperatures.push(T);
+                intrinsicCond.push(intrinsicConductivity(T));
+                extrinsicCond.push(extrinsicConductivity(T, dopingConcentration, mu_e, mu_h));
+            }
+
+            return { temperatures, intrinsicCond, extrinsicCond };
+        }
+
+        const data = generateData();
+
+        const ctx = document.getElementById('conductivityChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.temperatures,
+                datasets: [
+                    {
+                        label: 'Intrinsic Semiconductor',
+                        data: data.intrinsicCond,
+                        borderColor: 'blue',
+                        fill: false,
+                        tension: 0.1
+                    },
+                    {
+                        label: 'Extrinsic N-type Semiconductor',
+                        data: data.extrinsicCond,
+                        borderColor: 'red',
+                        borderDash: [5, 5],
+                        fill: false,
+                        tension: 0.1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Temperature (K)'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Electrical Conductivity (S/m)'
+                        },
+                        min: 0
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
