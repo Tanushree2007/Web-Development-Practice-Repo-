@@ -3,75 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flower Fall Animation</title>
+    <title>Cute Heart Animation</title>
     <style>
         body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #f0f8ff;
+            flex-direction: column;
         }
 
-        .flower {
+        h1 {
+            color: #FF69B4;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .heart {
+            width: 100px;
+            height: 100px;
+            background-color: #FF69B4;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: pulse 1.5s infinite;
+        }
+
+        .heart:before, .heart:after {
+            content: '';
             position: absolute;
-            top: -50px;
-            width: 50px;
-            height: 50px;
-            background-image: url('https://www.flaticon.com/svg/static/icons/svg/992/992682.svg'); /* Replace with your flower image URL */
-            background-size: cover;
-            opacity: 0;
-            animation: fall 5s infinite ease-in;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #FF69B4;
         }
 
-        @keyframes fall {
+        .heart:before {
+            left: 50px;
+            top: 0;
+        }
+
+        .heart:after {
+            top: -50px;
+            left: 0;
+        }
+
+        @keyframes pulse {
             0% {
-                transform: translateX(0) rotate(0deg);
-                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
             }
             100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
+                transform: scale(1);
             }
         }
-
-        .flower:nth-child(1) {
-            animation-delay: 0s;
-        }
-
-        .flower:nth-child(2) {
-            animation-delay: 2s;
-        }
-
-        .flower:nth-child(3) {
-            animation-delay: 4s;
-        }
-
-        /* Add more flowers if you wish */
     </style>
 </head>
 <body>
 
-    <div class="flower"></div>
-    <div class="flower"></div>
-    <div class="flower"></div>
-    <!-- You can add more flowers by copying the div -->
-
-    <script>
-        // Create random flower elements to fall from the top
-        setInterval(() => {
-            let flower = document.createElement('div');
-            flower.classList.add('flower');
-            flower.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
-            flower.style.animationDuration = Math.random() * 5 + 3 + 's'; // Random falling speed
-            flower.style.animationDelay = Math.random() * 3 + 's'; // Random delay for a more natural look
-            document.body.appendChild(flower);
-
-            // Remove flower after animation completes
-            flower.addEventListener('animationend', () => {
-                flower.remove();
-            });
-        }, 500); // Add a new flower every 500ms
-    </script>
+    <h1>Love & Happiness</h1>
+    <div class="heart"></div>
 
 </body>
 </html>
