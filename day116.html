@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomb Blast Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            margin: 0;
+        }
+
+        .bomb-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bomb {
+            width: 50px;
+            height: 50px;
+            background-color: #333;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .fuse {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            width: 3px;
+            height: 20px;
+            background-color: #e1b000;
+            border-radius: 5px;
+            transform: translateX(-50%);
+        }
+
+        .blast {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 69, 0, 0.8);
+            animation: blastAnimation 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        .blast:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .blast:nth-child(2) {
+            animation-delay: 0.1s;
+            width: 80px;
+            height: 80px;
+            border-width: 5px;
+        }
+
+        .blast:nth-child(3) {
+            animation-delay: 0.2s;
+            width: 120px;
+            height: 120px;
+            border-width: 7px;
+        }
+
+        @keyframes blastAnimation {
+            0% {
+                opacity: 1;
+                transform: scale(2);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(20);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bomb-container">
+        <div class="bomb">
+            <div class="fuse"></div>
+        </div>
+        <div class="blast"></div>
+        <div class="blast"></div>
+        <div class="blast"></div>
+    </div>
+</body>
+</html>
