@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rain Effect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #2c3e50;
+            overflow: hidden;
+        }
+
+        .raindrop {
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.6);
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createRaindrop() {
+            const raindrop = document.createElement('div');
+            raindrop.classList.add('raindrop');
+            
+            // Randomize the initial position and animation speed
+            raindrop.style.left = Math.random() * window.innerWidth + 'px';
+            raindrop.style.animationDuration = Math.random() * 1 + 1 + 's'; // Between 1 and 2 seconds
+            raindrop.style.animationDelay = Math.random() * 2 + 's'; // Random delay to make drops fall at different times
+
+            document.body.appendChild(raindrop);
+
+            // Remove the raindrop once it falls off the screen
+            raindrop.addEventListener('animationend', () => {
+                raindrop.remove();
+            });
+        }
+
+        // Create rain every 50 milliseconds
+        setInterval(createRaindrop, 50);
+    </script>
+</body>
+</html>
