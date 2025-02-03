@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thunder Effect</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding: 50px;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .thunder-text {
+      font-size: 48px;
+      font-weight: bold;
+      opacity: 0;
+      animation: flash 0.5s forwards;
+    }
+
+    @keyframes flash {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    #thunder-sound {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="thunder-text">THUNDER</h1>
+  <audio id="thunder-sound" autoplay>
+    <source src="thunder-sound.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Function to trigger thunder effect
+    function triggerThunder() {
+      document.querySelector('.thunder-text').style.animation = 'flash 0.5s forwards';
+      const thunderSound = document.getElementById('thunder-sound');
+      thunderSound.play();
+
+      // Random interval for the next thunder
+      setTimeout(triggerThunder, Math.random() * 5000 + 2000);
+    }
+
+    // Start thunder after page load
+    window.onload = function() {
+      triggerThunder();
+    };
+  </script>
+
+</body>
+</html>
