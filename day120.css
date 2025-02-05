@@ -1,0 +1,49 @@
+.box-model{
+	height:100%;
+	background-color: pink;
+	display: flex;
+	flex-wrap: wrap;
+}
+.box ,.box1, .box2{
+	height: 200px;
+	width: 200px;
+	background-color: yellowgreen;
+	
+}
+.box{
+		width: 200px;
+		height: 200px;
+		background-color: red;
+		margin-left: 0px;
+		margin-top: px;
+
+	}
+		.box1{
+		
+		background-color: green;
+		margin-top: 50px;
+		margin-left: 250px;
+
+
+	}
+	.box2{
+		width: 200px;
+		height: 200px;
+		background-color: blue;
+		margin-top: 100px;
+		margin-left: 500px;
+	}
+.box ,.box1,.box2{
+	width: 200px;
+	padding: 20px;
+	transition: transform 1s ease;
+}
+.box:hover{
+		transform: scale(1.2);
+	}
+.box1:hover{
+		transform: scale(1.2);
+	}
+.box2:hover{
+		transform: scale(1.2);
+	}
